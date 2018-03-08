@@ -1,0 +1,35 @@
+{
+  "name": "website-browsersync-nodemon-gulp",
+  "version": "1.0.0",
+  "description": "Starter kit for creating websites using browserSync, nodemon, gulp",
+  "main": "app.js",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.4",
+    "run-sequence": "^2.2.1"
+  },
+  "devDependencies": {
+    "gulp-nodemon": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "daniel.chmiel@outlook.com",
+  "license": "ISC"
+}
