@@ -4,6 +4,7 @@ const browserSync = require('browser-sync')
 const runSequence = require('run-sequence')
 const nodemon = require('gulp-nodemon')
 const gulpLoadPlugins = require('gulp-load-plugins')
+const server = require('./app')
 const BROWSER_SYNC_RELOAD_DELAY = 500
 const $ = gulpLoadPlugins()
 
@@ -137,3 +138,9 @@ gulp.task('default', ['build', 'browser-sync'], () => {
   gulp.watch('dist/styles/*.css', ['css'])
   gulp.watch('dist/scripts/*.js', ['bs-reload'])
 })
+
+gulp.task('serve', cb => {
+  server()
+})
+
+gulp.task('production', cb => runSequence('build', 'serve', cb))
