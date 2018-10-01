@@ -17,17 +17,20 @@
     "gulp-htmlmin": "^4.0.0",
     "gulp-if": "^2.0.2",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.2.2",
+    "gulp-run": "^1.7.1",
     "gulp-sass": "^3.1.0",
     "gulp-size": "^3.0.0",
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.1.4",
-    "run-sequence": "^2.2.1",
-    "gulp-nodemon": "^2.2.1"
+    "run-sequence": "^2.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/gulp/bin/gulp.js production"
+    "start": "./node_modules/gulp/bin/gulp.js production",
+    "dev": "node app.js",
+    "heroku-prebuild": "./node_modules/gulp/bin/gulp.js build"
   },
   "author": "daniel.chmiel@outlook.com",
   "license": "ISC"
