@@ -45,7 +45,7 @@ gulp.task('clean', () => {
 })
 
 gulp.task('build', (callback) => {
-  return runSequence('clean', ['html', 'scss', 'js'], callback)
+  return runSequence('clean', ['html', 'scss', 'js', 'js2'], callback)
 })
 
 gulp.task('js', () => {
@@ -60,6 +60,21 @@ gulp.task('js', () => {
     .pipe($.size({ title: 'scripts' }))
     .pipe(gulp.dest('dist/scripts'))
     .pipe($.rename('main.min.js'))
+    .pipe($.uglify())
+    .pipe(gulp.dest('dist/scripts'))
+})
+
+gulp.task('js2', () => {
+  return gulp.src([
+    // './node_modules/jquery/dist/jquery.min.js',
+    './src/scripts/main2.js',
+    './src/scripts/main3.js',
+  ])
+    .pipe($.babel({
+      presets: ['env']
+    }))
+    .pipe($.size({ title: 'scripts' }))
+    .pipe(gulp.dest('dist/scripts'))
     .pipe($.uglify())
     .pipe(gulp.dest('dist/scripts'))
 })
@@ -117,7 +132,7 @@ gulp.task('html', () => {
 gulp.task('default', ['build', 'browser-sync'], () => {
   gulp.watch('src/views/*.html', ['html'])
   gulp.watch('src/styles/*.scss', ['scss'])
-  gulp.watch('src/scripts/*.js', ['js'])
+  gulp.watch('src/scripts/*.js', ['js', 'js2'])
   gulp.watch('dist/*.html', ['bs-reload'])
   gulp.watch('dist/styles/*.css', ['css'])
   gulp.watch('dist/scripts/*.js', ['bs-reload'])
