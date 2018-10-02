@@ -5,7 +5,7 @@ Support for scss, autoprefixer, ES6. Builds minified versions for production
 
 ## Running
 
-Run ```gulp``` to start
+Run ```npm run dev``` to start development
 
 ## Example details
 
