@@ -5,7 +5,6 @@ const runSequence = require('run-sequence')
 const nodemon = require('gulp-nodemon')
 const gulpLoadPlugins = require('gulp-load-plugins')
 const exec = require('child_process').exec
-const server = require('./app')
 const BROWSER_SYNC_RELOAD_DELAY = 500
 const $ = gulpLoadPlugins()
 
