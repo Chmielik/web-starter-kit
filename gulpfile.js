@@ -4,15 +4,14 @@ const browserSync = require('browser-sync')
 const runSequence = require('run-sequence')
 const nodemon = require('gulp-nodemon')
 const gulpLoadPlugins = require('gulp-load-plugins')
-const exec = require('child_process').exec
 const BROWSER_SYNC_RELOAD_DELAY = 500
 const $ = gulpLoadPlugins()
 
 gulp.task('nodemon', (cb) => {
   let called = false
   return nodemon({
-    script: 'app.js',
-    watch: ['app.js']
+    script: './server/server.js',
+    watch: ['./server/server.js']
   })
     .on('start', () => {
       if (!called) {
@@ -32,8 +31,7 @@ gulp.task('nodemon', (cb) => {
 gulp.task('browser-sync', ['nodemon'], () => {
   return browserSync({
     proxy: 'http://localhost:3000',
-    port: 7000,
-    browser: 'google-chrome'
+    port: 7000
   })
 })
 
@@ -138,13 +136,3 @@ gulp.task('default', ['build', 'browser-sync'], () => {
   gulp.watch('dist/styles/*.css', ['css'])
   gulp.watch('dist/scripts/*.js', ['bs-reload'])
 })
-
-gulp.task('serve', cb => {
-  exec('node app.js', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  })
-})
-
-gulp.task('production', cb => runSequence('build', 'serve', cb))
